@@ -4,7 +4,7 @@
 
 ## 下载和使用
 
-我们在Hugginface平台上开源了我们的模型参数，可以通过Transformers库直接使用：
+我们**即将在Hugginface平台开源我们的模型参数**，可以通过Transformers库直接使用：
 
 *https://huggingface.co/LingxinAI/CharacterGLM-6b*
 
