@@ -1,6 +1,6 @@
 # CharacterGLM-6B
 
-# Citation
+## Citation
 
 If you find our work useful for your research, please kindly cite our paper as follows:
 
