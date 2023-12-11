@@ -1,5 +1,9 @@
 # CharacterGLM-6B
 
+由于不可抗力，模型还需一段时间才能开源，请先尝试我们的API：https://maas.aminer.cn/dev/api#characterglm 
+
+Due to force majeure, it will take some time for the model to be open source. Please try our API first: https://maas.aminer.cn/dev/api#characterglm
+
 ## Citation
 
 If you find our work useful for your research, please kindly cite our paper as follows:
