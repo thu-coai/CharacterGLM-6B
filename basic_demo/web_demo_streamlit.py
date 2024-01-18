@@ -49,30 +49,41 @@ if "session_meta" not in st.session_state:
         "bot_name": "",
         "user_name": ""
     }
+if "character_choice" not in st.session_state:
+    st.session_state["character_choice"] = None
+
+def _init_session(character_choice, init_history: bool):
+    if character_choice:
+        character_data = characters[character_choice]
+        st.session_state.session_meta["user_info"] = character_data["user_info"]
+        st.session_state.session_meta["bot_info"] = character_data["bot_info"]
+        st.session_state.session_meta["bot_name"] = character_data["bot_name"]
+        st.session_state.session_meta["user_name"] = character_data["user_name"]
+        greeting = character_data.get("greeting", "")
+        
+        if init_history:
+            st.session_state.history = []
+            if greeting:
+                st.session_state.history.append(("", greeting))
+            st.session_state.past_key_values = None
 
 # Sidebar for character selection
 st.sidebar.header("Select Character")
 character_choice = st.sidebar.selectbox("Choose a character", list(characters.keys()))
-if character_choice:
-    st.session_state.history = []
-    character_data = characters[character_choice]
-    st.session_state.session_meta["user_info"] = character_data["user_info"]
-    st.session_state.session_meta["bot_info"] = character_data["bot_info"]
-    st.session_state.session_meta["bot_name"] = character_data["bot_name"]
-    st.session_state.session_meta["user_name"] = character_data["user_name"]
-    greeting = character_data.get("greeting", "")
-    if greeting and (not st.session_state.history or st.session_state.history[-1][1] != greeting):
-        st.session_state.history.append(("", greeting))
+update_character_choice = character_choice != st.session_state["character_choice"]
+st.session_state["character_choice"] = character_choice
+_init_session(character_choice, init_history=update_character_choice)
 
 # Sidebar for model parameters
 max_length = st.sidebar.slider("Max Length", 0, 4096, 2048, step=1)
 top_p = st.sidebar.slider("Top P", 0.0, 1.0, 0.8, step=0.01)
 temperature = st.sidebar.slider("Temperature", 0.0, 1.0, 0.9, step=0.01)
+repetition_penalty = st.sidebar.slider("Repetition Penalty", 0.1, 2.0, 1.0, step=0.1)
 
 # Button to clear
 buttonClean = st.sidebar.button("清理会话历史", key="clean")
 if buttonClean:
-    st.session_state.history = []
+    _init_session(st.session_state["character_choice"], init_history=True)
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
     st.rerun()
@@ -80,10 +91,10 @@ if buttonClean:
 for i, (user_message, bot_response) in enumerate(st.session_state.history):
     if user_message:
         with st.chat_message(name="user", avatar="user"):
-            st.markdown(user_message)
+            st.text(user_message)
     if bot_response:
         with st.chat_message(name="assistant", avatar="assistant"):
-            st.markdown(bot_response)
+            st.text(bot_response)
 
 with st.chat_message(name="user", avatar="user"):
     input_placeholder = st.empty()
@@ -92,7 +103,7 @@ with st.chat_message(name="assistant", avatar="assistant"):
 
 query = st.chat_input("开始对话吧")
 if query:
-    input_placeholder.markdown(query)
+    input_placeholder.text(query)
     history = st.session_state.history
     past_key_values = st.session_state.past_key_values
     for response, history, past_key_values in model.stream_chat(
@@ -104,8 +115,9 @@ if query:
             max_length=max_length,
             top_p=top_p,
             temperature=temperature,
+            repetition_penalty=repetition_penalty,
             return_past_key_values=True,
     ):
-        message_placeholder.markdown(response)
+        message_placeholder.text(response)
     st.session_state.history = history
     st.session_state.past_key_values = past_key_values
