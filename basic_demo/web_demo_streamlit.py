@@ -17,7 +17,7 @@ import streamlit as st
 import torch
 from transformers import AutoModel, AutoTokenizer
 
-MODEL_PATH = os.environ.get('MODEL_PATH', 'LingxinAI/CharacterGLM2-6b')
+MODEL_PATH = os.environ.get('MODEL_PATH', 'LingxinAI/CharacterGLM-6b')
 TOKENIZER_PATH = os.environ.get("TOKENIZER_PATH", MODEL_PATH)
 with open('character.json', 'r', encoding='utf-8') as file:
     characters = json.load(file)
