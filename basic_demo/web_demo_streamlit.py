@@ -31,8 +31,10 @@ st.set_page_config(
 
 @st.cache_resource
 def get_model():
-    tokenizer = AutoTokenizer.from_pretrained(TOKENIZER_PATH, trust_remote_code=True)
-    model = AutoModel.from_pretrained(MODEL_PATH, trust_remote_code=True, device_map="auto").eval()
+    tokenizer = AutoTokenizer.from_pretrained(
+        TOKENIZER_PATH, trust_remote_code=True)
+    model = AutoModel.from_pretrained(
+        MODEL_PATH, trust_remote_code=True, device_map="auto").eval()
     return tokenizer, model
 
 
@@ -51,6 +53,9 @@ if "session_meta" not in st.session_state:
     }
 if "character_choice" not in st.session_state:
     st.session_state["character_choice"] = None
+if "num_beams" not in st.session_state:
+    st.session_state["num_beams"] = None
+
 
 def _init_session(character_choice, init_history: bool):
     if character_choice:
@@ -60,16 +65,18 @@ def _init_session(character_choice, init_history: bool):
         st.session_state.session_meta["bot_name"] = character_data["bot_name"]
         st.session_state.session_meta["user_name"] = character_data["user_name"]
         greeting = character_data.get("greeting", "")
-        
+
         if init_history:
             st.session_state.history = []
             if greeting:
                 st.session_state.history.append(("", greeting))
             st.session_state.past_key_values = None
 
+
 # Sidebar for character selection
 st.sidebar.header("Select Character")
-character_choice = st.sidebar.selectbox("Choose a character", list(characters.keys()))
+character_choice = st.sidebar.selectbox(
+    "Choose a character", list(characters.keys()))
 update_character_choice = character_choice != st.session_state["character_choice"]
 st.session_state["character_choice"] = character_choice
 _init_session(character_choice, init_history=update_character_choice)
@@ -78,7 +85,12 @@ _init_session(character_choice, init_history=update_character_choice)
 max_length = st.sidebar.slider("Max Length", 0, 4096, 2048, step=1)
 top_p = st.sidebar.slider("Top P", 0.0, 1.0, 0.8, step=0.01)
 temperature = st.sidebar.slider("Temperature", 0.0, 1.0, 0.9, step=0.01)
-repetition_penalty = st.sidebar.slider("Repetition Penalty", 0.1, 2.0, 1.0, step=0.1)
+repetition_penalty = st.sidebar.slider(
+    "Repetition Penalty", 0.1, 2.0, 1.0, step=0.1)
+num_beams = st.sidebar.slider("Num Beams", 1, 4, 1, step=1)
+if num_beams != st.session_state["num_beams"]:
+    st.session_state["num_beams"] = num_beams
+    st.session_state["past_key_values"] = None
 
 # Button to clear
 buttonClean = st.sidebar.button("清理会话历史", key="clean")
@@ -91,10 +103,10 @@ if buttonClean:
 for i, (user_message, bot_response) in enumerate(st.session_state.history):
     if user_message:
         with st.chat_message(name="user", avatar="user"):
-            st.text(user_message)
+            st.markdown(user_message)
     if bot_response:
         with st.chat_message(name="assistant", avatar="assistant"):
-            st.text(bot_response)
+            st.markdown(bot_response)
 
 with st.chat_message(name="user", avatar="user"):
     input_placeholder = st.empty()
@@ -103,21 +115,35 @@ with st.chat_message(name="assistant", avatar="assistant"):
 
 query = st.chat_input("开始对话吧")
 if query:
-    input_placeholder.text(query)
+    input_placeholder.markdown(query)
     history = st.session_state.history
     past_key_values = st.session_state.past_key_values
-    for response, history, past_key_values in model.stream_chat(
-            tokenizer=tokenizer,
-            session_meta=st.session_state.session_meta,
-            query=query,
-            history=history,
-            past_key_values=past_key_values,
-            max_length=max_length,
-            top_p=top_p,
-            temperature=temperature,
-            repetition_penalty=repetition_penalty,
-            return_past_key_values=True,
-    ):
-        message_placeholder.text(response)
+    if num_beams > 1:
+        response, history = model.chat(tokenizer,
+                                       session_meta=st.session_state.session_meta,
+                                       query=query,
+                                       history=history,
+                                       max_length=max_length,
+                                       top_p=top_p,
+                                       temperature=temperature,
+                                       repetition_penalty=repetition_penalty,
+                                       num_beams=num_beams
+                                       )
+        message_placeholder.markdown(response)
+        past_key_values = None
+    else:
+        for response, history, past_key_values in model.stream_chat(
+                tokenizer=tokenizer,
+                session_meta=st.session_state.session_meta,
+                query=query,
+                history=history,
+                past_key_values=past_key_values,
+                max_length=max_length,
+                top_p=top_p,
+                temperature=temperature,
+                repetition_penalty=repetition_penalty,
+                return_past_key_values=True,
+        ):
+            message_placeholder.markdown(response)
     st.session_state.history = history
     st.session_state.past_key_values = past_key_values
