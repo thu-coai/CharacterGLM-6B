@@ -20,14 +20,13 @@
 
 ### 体验更强的能力
 
-如果你想使用更大参数量的 CharacterGLM 模型，可以在 [开放平台](https://open.bigmodel.cn/dev/api#super-humanoid) 体验更大规模的
-CharacterGLM 模型。
+如果你想使用更大参数量的 CharacterGLM 模型，可以在 [开放平台](https://open.bigmodel.cn/dev/api#super-humanoid) 体验更大规模的 CharacterGLM 模型。
 API版本 具有更多角色，更强的情景带入能力，更加完善的法律，道德规范，具备产品能力，方便开发者进行更深度的情景模拟和产品开发。
 
 **开源模型不具备商用能力，仅供学术研究使用，不可用于任何商业和传播用途**
 
 📔
-更为详细的使用信息，可以参考：[CharacterGLM-6B 技术文档](https://lslfd0slxc.feishu.cn/wiki/WvQbwIJ9tiPAxGk8ywDck6yfnof?from=from_copylink)
+更为详细的使用信息，可以参考：[CharacterGLM-6B 技术文档](https://zhipu-ai.feishu.cn/wiki/MlRiwU8NXi3A3zkpHNdcvcUmnCg)
 
 ## 介绍
 

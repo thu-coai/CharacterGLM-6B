@@ -30,7 +30,7 @@ any commercial and communication purposes**
 
 📔
 For more detailed usage information, please refer
-to: [CharacterGLM-6B Technical Documentation](https://lslfd0slxc.feishu.cn/wiki/WvQbwIJ9tiPAxGk8ywDck6yfnof?from=from_copylink)
+to: [CharacterGLM-6B Technical Documentation](https://zhipu-ai.feishu.cn/wiki/MlRiwU8NXi3A3zkpHNdcvcUmnCg)
 
 ## introduce
 
