@@ -147,7 +147,7 @@ pip install -r requirements.txt
 
 + `transformers` 库版本应该 `4.36.2` 以及以上的版本 ，`torch` 库版本应为 2.1.0 及以上的版本，以获得最佳的推理性能。
 + 为了保证 `torch` 的版本正确，请严格按照 [官方文档](https://pytorch.org/get-started/locally/) 的说明安装。
-+ `gradio` 库版本应该为 `4.13` 以上的版本。
++ `streamlit` 库版本应该为 `1.30.0` 以上的版本。
 
 #### 从本地加载模型
 
@@ -159,20 +159,15 @@ pip install -r requirements.txt
 ，然后运行
 
 ```Shell
-git https://huggingface.co/thu-coai/CharacterGLM-6B
+git clone https://huggingface.co/thu-coai/CharacterGLM-6B
 ```
 
 ### 网页版对话 Demo
 
-可以通过以下命令启动基于 Gradio 的网页版 demo：
+可以通过以下命令启动基于 Streamlit 的网页版 demo [web_demo_streamlit.py](basic_demo/web_demo_streamlit.py)：
 
 ```shell
-python web_demo_gradio.py
-```
-
-可以通过以下命令启动基于 Streamlit 的网页版 demo：
-
-```shell
+cd basic_demo
 streamlit run web_demo_streamlit.py
 ```
 
@@ -183,6 +178,7 @@ streamlit run web_demo_streamlit.py
 运行仓库中 [cli_demo.py](basic_demo/cli_demo.py)：
 
 ```shell
+cd basic_demo
 python cli_demo.py
 ```
 
