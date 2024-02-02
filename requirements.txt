@@ -1,11 +1,15 @@
 # basic requirements
 
 protobuf>=4.25.2
-transformers>=4.36.2
+transformers>=4.37.2
 tokenizers>=0.15.0
-cpm_kernels>=1.0.11
+
 torch>=2.1.0
 sentencepiece>=0.1.99
+sentence_transformers>=2.3.1
+accelerate>=0.26.1
+cpm_kernels>=1.0.11
+
 streamlit>=1.30.0
 loguru~=0.7.2
 mdtex2html>=1.2.0

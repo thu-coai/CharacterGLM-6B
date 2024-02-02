@@ -197,7 +197,6 @@ pip install -r requirements.txt
   above to obtain the best inference performance.
 + In order to ensure that the version of `torch` is correct, please strictly follow the instructions
   of [official documentation](https://pytorch.org/get-started/locally/) for installation.
-+ The `gradio` library version should be the `4.13` version and above.
 
 #### Load model from local
 
@@ -217,16 +216,10 @@ git clone https://huggingface.co/thu-coai/CharacterGLM-6B
 
 ### Web version dialogue Demo
 
-You can start the Gradio-based web version demo with the following command:
+You can start the [web demo](basic_demo/web_demo_streamlit.py) based on Streamlit with the following command:
 
 ```shell
-python web_demo_gradio.py
-```
-
-You can start the web version demo based on Streamlit with the following command:
-
-```shell
-streamlit run web_demo_streamlit.py
+streamlit run basic_demo/web_demo_streamlit.py
 ```
 
 The web version demo will run a Web Server and output the address. Open the output address in a browser to use it. After
@@ -237,7 +230,7 @@ testing, the web version Demo based on Streamlit will be smoother.
 Run [cli_demo.py](basic_demo/cli_demo.py) in the warehouse:
 
 ```shell
-python cli_demo.py
+python basic_demo/cli_demo.py
 ```
 
 The program will conduct an interactive conversation in the command line. Enter instructions in the command line and
