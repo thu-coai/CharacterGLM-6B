@@ -7,7 +7,7 @@
 <br>
 
 <p align="center">
-🤗 <a href="https://huggingface.co/LingxinAI/CharacterGLM-6b" target="_blank">HF Repo</a> • 📃 <a href="https://arxiv.org/abs/2311.16832" target="_blank">CharacterGLM Paper</a><br>
+🤗 <a href="https://huggingface.co/thu-coai/CharacterGLM-6B" target="_blank">HF Repo</a> • 📃 <a href="https://arxiv.org/abs/2311.16832" target="_blank">CharacterGLM Paper</a><br>
 </p>
 <p align="center">
     👋 加入我们的 <a href="resources/wechat.md" target="_blank">微信</a>
@@ -135,7 +135,7 @@ GPT-4进行了对比式的评估。该评估仍采用交互式人工评估，共
 首先需要下载本仓库：
 
 ```shell
-git clone https://huggingface.co/LingxinAI/CharacterGLM-6b
+git clone https://github.com/thu-coai/CharacterGLM-6B
 cd CharacterGLM-6b
 ```
 
@@ -151,7 +151,7 @@ pip install -r requirements.txt
 
 #### 从本地加载模型
 
-自动下载模型实现和参数。完整的模型实现在 [Hugging Face Hub](https://huggingface.co/LingxinAI/CharacterGLM-6b)
+自动下载模型实现和参数。完整的模型实现在 [Hugging Face Hub](https://huggingface.co/thu-coai/CharacterGLM-6B)
 。如果你的网络环境较差，下载模型参数可能会花费较长时间甚至失败。此时可以先将模型下载到本地，然后从本地加载。
 
 从 Hugging Face Hub
@@ -159,7 +159,7 @@ pip install -r requirements.txt
 ，然后运行
 
 ```Shell
-git clone https://huggingface.co/LingxinAI/CharacterGLM-6b
+git https://huggingface.co/thu-coai/CharacterGLM-6B
 ```
 
 ### 网页版对话 Demo
