@@ -183,7 +183,7 @@ advantages in all conversation topics.
 First you need to download this repository:
 
 ```shell
-git https://github.com/thu-coai/CharacterGLM-6B
+git clone https://github.com/thu-coai/CharacterGLM-6B
 cd CharacterGLM-6b
 ```
 
@@ -197,7 +197,7 @@ pip install -r requirements.txt
   above to obtain the best inference performance.
 + In order to ensure that the version of `torch` is correct, please strictly follow the instructions
   of [official documentation](https://pytorch.org/get-started/locally/) for installation.
-+ The `gradio` library version should be the `4.13` version and above.
++ The `streamlit` library version should be the `1.30.0` version and above.
 
 #### Load model from local
 
@@ -217,15 +217,10 @@ git clone https://huggingface.co/thu-coai/CharacterGLM-6B
 
 ### Web version dialogue Demo
 
-You can start the Gradio-based web version demo with the following command:
+You can start the web version demo based on Streamlit with the following command [web_demo_streamlit.py](basic_demo/web_demo_streamlit.py):
 
 ```shell
-python web_demo_gradio.py
-```
-
-You can start the web version demo based on Streamlit with the following command:
-
-```shell
+cd basic_demo
 streamlit run web_demo_streamlit.py
 ```
 
@@ -237,6 +232,7 @@ testing, the web version Demo based on Streamlit will be smoother.
 Run [cli_demo.py](basic_demo/cli_demo.py) in the warehouse:
 
 ```shell
+cd basic_demo
 python cli_demo.py
 ```
 
