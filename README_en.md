@@ -7,7 +7,7 @@
 <br>
 
 <p align="center">
-🤗 <a href="https://huggingface.co/LingxinAI/CharacterGLM-6b" target="_blank">HF Repo</a> • 📃 <a href="https://arxiv.org/abs/2311.16832 " target="_blank">CharacterGLM Paper</a><br>
+🤗 <a href="https://huggingface.co/thu-coai/CharacterGLM-6B" target="_blank">HF Repo</a> • 📃 <a href="https://arxiv.org/abs/2311.16832 " target="_blank">CharacterGLM Paper</a><br>
 </p>
 <p align="center">
      👋 Join our <a href="resources/wechat.md" target="_blank">WeChat</a>
@@ -30,7 +30,7 @@ any commercial and communication purposes**
 
 📔
 For more detailed usage information, please refer
-to: [CharacterGLM-6B Technical Documentation](https://lslfd0slxc.feishu.cn/wiki/WvQbwIJ9tiPAxGk8ywDck6yfnof?from=from_copylink)
+to: [CharacterGLM-6B Technical Documentation](https://huggingface.co/thu-coai/CharacterGLM-6B)
 
 ## introduce
 
@@ -183,7 +183,7 @@ advantages in all conversation topics.
 First you need to download this repository:
 
 ```shell
-git clone https://huggingface.co/LingxinAI/CharacterGLM-6b
+git https://github.com/thu-coai/CharacterGLM-6B
 cd CharacterGLM-6b
 ```
 
@@ -202,7 +202,7 @@ pip install -r requirements.txt
 #### Load model from local
 
 Automatically download model implementation and parameters. The complete model is implemented
-in [Hugging Face](https://huggingface.co/LingxinAI/CharacterGLM-6b)
+in [Hugging Face](https://huggingface.co/thu-coai/CharacterGLM-6B)
 . If your network environment is poor, downloading model parameters may take a long time or even fail. At this time, you
 can first download the model to the local and then load it from the local.
 
@@ -212,7 +212,7 @@ to [install Git LFS](https://docs.github.com/zh/repositories/working-with-files/
 , then run
 
 ```Shell
-git clone https://huggingface.co/LingxinAI/CharacterGLM-6b
+git clone https://huggingface.co/thu-coai/CharacterGLM-6B
 ```
 
 ### Web version dialogue Demo

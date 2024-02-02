@@ -7,7 +7,7 @@
 <br>
 
 <p align="center">
-🤗 <a href="https://huggingface.co/LingxinAI/CharacterGLM-6b" target="_blank">HF Repo</a> • 📃 <a href="https://arxiv.org/abs/2311.16832" target="_blank">CharacterGLM Paper</a><br>
+🤗 <a href="https://huggingface.co/thu-coai/CharacterGLM-6B" target="_blank">HF Repo</a> • 📃 <a href="https://arxiv.org/abs/2311.16832" target="_blank">CharacterGLM Paper</a><br>
 </p>
 <p align="center">
     👋 加入我们的 <a href="resources/wechat.md" target="_blank">微信</a>
@@ -20,14 +20,13 @@
 
 ### 体验更强的能力
 
-如果你想使用更大参数量的 CharacterGLM 模型，可以在 [开放平台](https://open.bigmodel.cn/dev/api#super-humanoid) 体验更大规模的
-CharacterGLM 模型。
+如果你想使用更大参数量的 CharacterGLM 模型，可以在 [开放平台](https://open.bigmodel.cn/dev/api#super-humanoid) 体验更大规模的 CharacterGLM 模型。
 API版本 具有更多角色，更强的情景带入能力，更加完善的法律，道德规范，具备产品能力，方便开发者进行更深度的情景模拟和产品开发。
 
 **开源模型不具备商用能力，仅供学术研究使用，不可用于任何商业和传播用途**
 
 📔
-更为详细的使用信息，可以参考：[CharacterGLM-6B 技术文档](https://lslfd0slxc.feishu.cn/wiki/WvQbwIJ9tiPAxGk8ywDck6yfnof?from=from_copylink)
+更为详细的使用信息，可以参考：[CharacterGLM-6B 技术文档](https://zhipu-ai.feishu.cn/wiki/MlRiwU8NXi3A3zkpHNdcvcUmnCg)
 
 ## 介绍
 
@@ -136,7 +135,7 @@ GPT-4进行了对比式的评估。该评估仍采用交互式人工评估，共
 首先需要下载本仓库：
 
 ```shell
-git clone https://huggingface.co/LingxinAI/CharacterGLM-6b
+git clone https://github.com/thu-coai/CharacterGLM-6B
 cd CharacterGLM-6b
 ```
 
@@ -152,7 +151,7 @@ pip install -r requirements.txt
 
 #### 从本地加载模型
 
-自动下载模型实现和参数。完整的模型实现在 [Hugging Face Hub](https://huggingface.co/LingxinAI/CharacterGLM-6b)
+自动下载模型实现和参数。完整的模型实现在 [Hugging Face Hub](https://huggingface.co/thu-coai/CharacterGLM-6B)
 。如果你的网络环境较差，下载模型参数可能会花费较长时间甚至失败。此时可以先将模型下载到本地，然后从本地加载。
 
 从 Hugging Face Hub
@@ -160,7 +159,7 @@ pip install -r requirements.txt
 ，然后运行
 
 ```Shell
-git clone https://huggingface.co/LingxinAI/CharacterGLM-6b
+git https://huggingface.co/thu-coai/CharacterGLM-6B
 ```
 
 ### 网页版对话 Demo
