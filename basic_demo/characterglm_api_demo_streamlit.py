@@ -340,6 +340,9 @@ def draw_new_image():
                 st.error("遇到了一点小问题，重试中...")
             else:
                 st.error("又失败啦，点击【生成图片】按钮可再次重试")
+                return
+        else:
+            break
     img_msg = ImageMsg({"role": "image", "image": img_url, "caption": image_prompt})
     # 若history的末尾有图片消息，则替换它，（重新生成）
     # 否则，append（新增）
