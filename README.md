@@ -158,16 +158,18 @@ pip install -r requirements.txt
 ，然后运行
 
 ```Shell
-git https://huggingface.co/thu-coai/CharacterGLM-6B
+git lfs install 
+git  clone https://huggingface.co/thu-coai/CharacterGLM-6B
 ```
 
 ### 网页版对话 Demo
 
 可以通过以下命令启动基于 Streamlit 的[网页版 demo](basic_demo/web_demo_streamlit.py)：
 
+**一定要进入文件夹运行，防止出现无法找到`character.json`的问题**
 ```shell
-
-streamlit run basic_demo/web_demo_streamlit.py
+cd basic_demo
+streamlit run web_demo_streamlit.py
 ```
 
 网页版 demo 会运行一个 Web Server，并输出地址。在浏览器中打开输出的地址即可使用。 经测试，基于 Streamlit 的网页版 Demo 会更流畅。

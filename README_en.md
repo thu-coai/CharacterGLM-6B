@@ -211,6 +211,7 @@ to [install Git LFS](https://docs.github.com/zh/repositories/working-with-files/
 , then run
 
 ```Shell
+git lfs install
 git clone https://huggingface.co/thu-coai/CharacterGLM-6B
 ```
 
@@ -218,8 +219,10 @@ git clone https://huggingface.co/thu-coai/CharacterGLM-6B
 
 You can start the [web demo](basic_demo/web_demo_streamlit.py) based on Streamlit with the following command:
 
+**Be sure to enter the folder to run to prevent the problem of not being able to find `character.json`**
 ```shell
-streamlit run basic_demo/web_demo_streamlit.py
+cd basic_demo
+streamlit web_demo_streamlit.py
 ```
 
 The web version demo will run a Web Server and output the address. Open the output address in a browser to use it. After
