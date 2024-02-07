@@ -158,7 +158,7 @@ pip install -r requirements.txt
 ，然后运行
 
 ```Shell
-git https://huggingface.co/thu-coai/CharacterGLM-6B
+git clone https://huggingface.co/thu-coai/CharacterGLM-6B
 ```
 
 ### 网页版对话 Demo
