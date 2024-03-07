@@ -222,7 +222,7 @@ You can start the [web demo](basic_demo/web_demo_streamlit.py) based on Streamli
 **Be sure to enter the folder to run to prevent the problem of not being able to find `character.json`**
 ```shell
 cd basic_demo
-streamlit web_demo_streamlit.py
+streamlit run web_demo_streamlit.py
 ```
 
 The web version demo will run a Web Server and output the address. Open the output address in a browser to use it. After
