@@ -186,7 +186,7 @@ python basic_demo/cli_demo.py
 
 ### 模型微调
 
-我们暂时还没有提供模型微调的脚本，我们将尽快推出，敬请期待。
+可以基于LlamaFactory框架微调，参考<https://zhipu-ai.feishu.cn/wiki/Zu1SwYrsaiyEHGkYT18chmCYnTg>
 
 ## 引用
 
